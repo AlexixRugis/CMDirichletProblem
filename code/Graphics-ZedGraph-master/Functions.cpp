@@ -5,16 +5,16 @@ namespace CMDirichlet {
     double func_f_main(double x, double y) {
         return abs(x * x - y * y);
     }
-    double func_mu1_main(double y) {
+    double func_mu1_main(double y, double a) {
         return -y * y + 1.0;
     }
-    double func_mu2_main(double y) {
+    double func_mu2_main(double y, double b) {
         return (1.0 - y * y) * exp(y);
     }
-    double func_mu3_main(double x) {
+    double func_mu3_main(double x, double c) {
         return 1 - x * x;
     }
-    double func_mu4_main(double x) {
+    double func_mu4_main(double x, double d) {
         return 1 - x * x;
     }
 
