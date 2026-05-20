@@ -802,26 +802,63 @@ namespace Graph {
     }
     private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-        a_textbox->Text = a_textbox->Text->Replace(".", ",");
-        b_textbox->Text = b_textbox->Text->Replace(".", ",");
-        c_textbox->Text = c_textbox->Text->Replace(".", ",");
-        d_textbox->Text = d_textbox->Text->Replace(".", ",");
-        epsn_textbox->Text = epsn_textbox->Text->Replace(".", ",");
-        w_textbox->Text = w_textbox->Text->Replace(".", ",");
+        double a, b, c, d;
+        double epsn, w;
+        size_t n, m, nmax;
 
-        double a = Convert::ToDouble(a_textbox->Text);
-        double b = Convert::ToDouble(b_textbox->Text);
-        double c = Convert::ToDouble(c_textbox->Text);
-        double d = Convert::ToDouble(d_textbox->Text);
+        try {
 
-        double epsn = Convert::ToDouble(epsn_textbox->Text);
+            a = Convert::ToDouble(NormalizeText(a_textbox->Text));
+            b = Convert::ToDouble(NormalizeText(b_textbox->Text));
+            c = Convert::ToDouble(NormalizeText(c_textbox->Text));
+            d = Convert::ToDouble(NormalizeText(d_textbox->Text));
+            epsn = Convert::ToDouble(NormalizeText(epsn_textbox->Text));
+            w = Convert::ToDouble(NormalizeText(w_textbox->Text));
 
-        double w = Convert::ToDouble(w_textbox->Text);
+            n = Convert::ToUInt64(n_textbox->Text->Trim());
+            m = Convert::ToUInt64(m_textbox->Text->Trim());
+            nmax = Convert::ToUInt64(nmax_textbox->Text->Trim());
 
-        size_t n = Convert::ToUInt64(n_textbox->Text);
-        size_t m = Convert::ToUInt64(m_textbox->Text);
+            if (n == 0 || m == 0 || nmax == 0) {
+                MessageBox::Show("Параметры n, m, Nmax должны быть больше 0",
+                    "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                return;
+            }
 
-        size_t nmax = Convert::ToUInt64(nmax_textbox->Text);
+            if (epsn <= 0) {
+                MessageBox::Show("eps_N должно быть больше 0",
+                    "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                return;
+            }
+
+            if (a >= b || c >= d) {
+                MessageBox::Show("Должно быть a < b и c < d",
+                    "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                return;
+            }
+
+            if (method_combobox->SelectedIndex == 1 && (w <= 0 || w >= 2)) {
+                MessageBox::Show("Для МВР метода w должно быть в интервале (0, 2)",
+                    "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                return;
+            }
+        }
+        catch (FormatException^) {
+            MessageBox::Show("Ошибка: проверьте формат введённых данных.\n"
+                "Используйте точку или запятую для разделения дробной части.",
+                "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            return;
+        }
+        catch (OverflowException^) {
+            MessageBox::Show("Ошибка: значение выходит за допустимые пределы",
+                "Ошибка ввода", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            return;
+        }
+        catch (Exception^ ex) {
+            MessageBox::Show("Ошибка: " + ex->Message,
+                "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            return;
+        }
 
         if (problem_combobox->SelectedIndex == 0) {
             DirichletProblem problem(
@@ -1072,6 +1109,10 @@ n = «{0}» и числом разбиений по y m = «{1}», примен�
             }
 
             return solution;
+        }
+
+        String^ NormalizeText(String^ text) {
+            return text->Trim()->Replace(".", ",");
         }
     };
 }
