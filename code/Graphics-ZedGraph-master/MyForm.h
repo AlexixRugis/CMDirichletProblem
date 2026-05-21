@@ -79,6 +79,8 @@ namespace Graph {
     private: System::Windows::Forms::GroupBox^ problem_diff_groupbox;
     private: System::Windows::Forms::DataGridView^ delta_solution_grid;
     private: System::Windows::Forms::TabControl^ tabControl1;
+    private: System::Windows::Forms::TabPage^ tabPage2;
+    private: System::Windows::Forms::Label^ label13;
 
 
 
@@ -323,54 +325,58 @@ namespace Graph {
         /// the contents of this method with the code editor.
         /// </summary>
         void InitializeComponent(void) {
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
             this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
             this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->problem_diff_groupbox = (gcnew System::Windows::Forms::GroupBox());
-            this->delta_solution_grid = (gcnew System::Windows::Forms::DataGridView());
-            this->problem1_groupbox = (gcnew System::Windows::Forms::GroupBox());
-            this->v_solution_grid = (gcnew System::Windows::Forms::DataGridView());
+            this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->button1 = (gcnew System::Windows::Forms::Button());
+            this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
+            this->a_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->b_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->d_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->c_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->label2 = (gcnew System::Windows::Forms::Label());
+            this->label3 = (gcnew System::Windows::Forms::Label());
+            this->label4 = (gcnew System::Windows::Forms::Label());
+            this->label5 = (gcnew System::Windows::Forms::Label());
+            this->n_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->m_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->nmax_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->epsn_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->label6 = (gcnew System::Windows::Forms::Label());
+            this->label7 = (gcnew System::Windows::Forms::Label());
+            this->label8 = (gcnew System::Windows::Forms::Label());
+            this->label9 = (gcnew System::Windows::Forms::Label());
+            this->w_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->label10 = (gcnew System::Windows::Forms::Label());
+            this->label11 = (gcnew System::Windows::Forms::Label());
+            this->label12 = (gcnew System::Windows::Forms::Label());
+            this->method_combobox = (gcnew System::Windows::Forms::ComboBox());
+            this->problem_combobox = (gcnew System::Windows::Forms::ComboBox());
+            this->label1 = (gcnew System::Windows::Forms::Label());
             this->problem2_groupbox = (gcnew System::Windows::Forms::GroupBox());
             this->u_solution_grid = (gcnew System::Windows::Forms::DataGridView());
-            this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->label1 = (gcnew System::Windows::Forms::Label());
-            this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
-            this->problem_combobox = (gcnew System::Windows::Forms::ComboBox());
-            this->method_combobox = (gcnew System::Windows::Forms::ComboBox());
-            this->label12 = (gcnew System::Windows::Forms::Label());
-            this->label11 = (gcnew System::Windows::Forms::Label());
-            this->label10 = (gcnew System::Windows::Forms::Label());
-            this->w_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->label9 = (gcnew System::Windows::Forms::Label());
-            this->label8 = (gcnew System::Windows::Forms::Label());
-            this->label7 = (gcnew System::Windows::Forms::Label());
-            this->label6 = (gcnew System::Windows::Forms::Label());
-            this->epsn_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->nmax_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->m_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->n_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->label5 = (gcnew System::Windows::Forms::Label());
-            this->label4 = (gcnew System::Windows::Forms::Label());
-            this->label3 = (gcnew System::Windows::Forms::Label());
-            this->label2 = (gcnew System::Windows::Forms::Label());
-            this->c_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->d_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->b_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->a_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->button1 = (gcnew System::Windows::Forms::Button());
+            this->problem1_groupbox = (gcnew System::Windows::Forms::GroupBox());
+            this->v_solution_grid = (gcnew System::Windows::Forms::DataGridView());
+            this->problem_diff_groupbox = (gcnew System::Windows::Forms::GroupBox());
+            this->delta_solution_grid = (gcnew System::Windows::Forms::DataGridView());
             this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+            this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+            this->label13 = (gcnew System::Windows::Forms::Label());
             this->tabPage1->SuspendLayout();
             this->tableLayoutPanel1->SuspendLayout();
-            this->problem_diff_groupbox->SuspendLayout();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->delta_solution_grid))->BeginInit();
-            this->problem1_groupbox->SuspendLayout();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->v_solution_grid))->BeginInit();
-            this->problem2_groupbox->SuspendLayout();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->u_solution_grid))->BeginInit();
             this->tableLayoutPanel2->SuspendLayout();
             this->tableLayoutPanel3->SuspendLayout();
             this->tableLayoutPanel4->SuspendLayout();
+            this->problem2_groupbox->SuspendLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->u_solution_grid))->BeginInit();
+            this->problem1_groupbox->SuspendLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->v_solution_grid))->BeginInit();
+            this->problem_diff_groupbox->SuspendLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->delta_solution_grid))->BeginInit();
             this->tabControl1->SuspendLayout();
+            this->tabPage2->SuspendLayout();
             this->SuspendLayout();
             // 
             // tabPage1
@@ -405,81 +411,6 @@ namespace Graph {
             this->tableLayoutPanel1->Size = System::Drawing::Size(1788, 861);
             this->tableLayoutPanel1->TabIndex = 0;
             // 
-            // problem_diff_groupbox
-            // 
-            this->problem_diff_groupbox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->problem_diff_groupbox->Controls->Add(this->delta_solution_grid);
-            this->problem_diff_groupbox->Location = System::Drawing::Point(897, 433);
-            this->problem_diff_groupbox->Name = L"problem_diff_groupbox";
-            this->problem_diff_groupbox->Size = System::Drawing::Size(888, 425);
-            this->problem_diff_groupbox->TabIndex = 6;
-            this->problem_diff_groupbox->TabStop = false;
-            this->problem_diff_groupbox->Text = L"u* - v*";
-            // 
-            // delta_solution_grid
-            // 
-            this->delta_solution_grid->BackgroundColor = System::Drawing::SystemColors::ControlLight;
-            this->delta_solution_grid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-            this->delta_solution_grid->Dock = System::Windows::Forms::DockStyle::Fill;
-            this->delta_solution_grid->Location = System::Drawing::Point(3, 18);
-            this->delta_solution_grid->Name = L"delta_solution_grid";
-            this->delta_solution_grid->RowHeadersWidth = 51;
-            this->delta_solution_grid->RowTemplate->Height = 24;
-            this->delta_solution_grid->Size = System::Drawing::Size(882, 404);
-            this->delta_solution_grid->TabIndex = 0;
-            // 
-            // problem1_groupbox
-            // 
-            this->problem1_groupbox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->problem1_groupbox->Controls->Add(this->v_solution_grid);
-            this->problem1_groupbox->Location = System::Drawing::Point(3, 433);
-            this->problem1_groupbox->Name = L"problem1_groupbox";
-            this->problem1_groupbox->Size = System::Drawing::Size(888, 425);
-            this->problem1_groupbox->TabIndex = 5;
-            this->problem1_groupbox->TabStop = false;
-            this->problem1_groupbox->Text = L"v*(x, y)";
-            // 
-            // v_solution_grid
-            // 
-            this->v_solution_grid->BackgroundColor = System::Drawing::SystemColors::ControlLight;
-            this->v_solution_grid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-            this->v_solution_grid->Dock = System::Windows::Forms::DockStyle::Fill;
-            this->v_solution_grid->Location = System::Drawing::Point(3, 18);
-            this->v_solution_grid->Name = L"v_solution_grid";
-            this->v_solution_grid->RowHeadersWidth = 51;
-            this->v_solution_grid->RowTemplate->Height = 24;
-            this->v_solution_grid->Size = System::Drawing::Size(882, 404);
-            this->v_solution_grid->TabIndex = 0;
-            // 
-            // problem2_groupbox
-            // 
-            this->problem2_groupbox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->problem2_groupbox->Controls->Add(this->u_solution_grid);
-            this->problem2_groupbox->Location = System::Drawing::Point(897, 3);
-            this->problem2_groupbox->Name = L"problem2_groupbox";
-            this->problem2_groupbox->Size = System::Drawing::Size(888, 424);
-            this->problem2_groupbox->TabIndex = 4;
-            this->problem2_groupbox->TabStop = false;
-            this->problem2_groupbox->Text = L"u*(x,y)";
-            // 
-            // u_solution_grid
-            // 
-            this->u_solution_grid->BackgroundColor = System::Drawing::SystemColors::ControlLight;
-            this->u_solution_grid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-            this->u_solution_grid->Dock = System::Windows::Forms::DockStyle::Fill;
-            this->u_solution_grid->Location = System::Drawing::Point(3, 18);
-            this->u_solution_grid->Name = L"u_solution_grid";
-            this->u_solution_grid->RowHeadersWidth = 51;
-            this->u_solution_grid->RowTemplate->Height = 24;
-            this->u_solution_grid->Size = System::Drawing::Size(882, 403);
-            this->u_solution_grid->TabIndex = 0;
-            // 
             // tableLayoutPanel2
             // 
             this->tableLayoutPanel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -497,18 +428,6 @@ namespace Graph {
             this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 27.83019F)));
             this->tableLayoutPanel2->Size = System::Drawing::Size(888, 424);
             this->tableLayoutPanel2->TabIndex = 3;
-            // 
-            // label1
-            // 
-            this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->label1->AutoSize = true;
-            this->label1->Location = System::Drawing::Point(3, 0);
-            this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(882, 306);
-            this->label1->TabIndex = 0;
-            this->label1->Text = L"Здесь появится справка о решении задачи";
             // 
             // tableLayoutPanel3
             // 
@@ -529,6 +448,17 @@ namespace Graph {
             this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 112)));
             this->tableLayoutPanel3->Size = System::Drawing::Size(882, 112);
             this->tableLayoutPanel3->TabIndex = 1;
+            // 
+            // button1
+            // 
+            this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->button1->Location = System::Drawing::Point(731, 61);
+            this->button1->Name = L"button1";
+            this->button1->Size = System::Drawing::Size(148, 48);
+            this->button1->TabIndex = 0;
+            this->button1->Text = L"Решить задачу";
+            this->button1->UseVisualStyleBackColor = true;
+            this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -580,148 +510,33 @@ namespace Graph {
             this->tableLayoutPanel4->Size = System::Drawing::Size(675, 106);
             this->tableLayoutPanel4->TabIndex = 1;
             // 
-            // problem_combobox
+            // a_textbox
             // 
-            this->problem_combobox->FormattingEnabled = true;
-            this->problem_combobox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Тестовая", L"Основная" });
-            this->problem_combobox->Location = System::Drawing::Point(407, 55);
-            this->problem_combobox->Name = L"problem_combobox";
-            this->problem_combobox->Size = System::Drawing::Size(121, 24);
-            this->problem_combobox->TabIndex = 24;
+            this->a_textbox->Location = System::Drawing::Point(3, 3);
+            this->a_textbox->Name = L"a_textbox";
+            this->a_textbox->Size = System::Drawing::Size(93, 22);
+            this->a_textbox->TabIndex = 0;
             // 
-            // method_combobox
+            // b_textbox
             // 
-            this->method_combobox->FormattingEnabled = true;
-            this->method_combobox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Зейделя", L"МВР" });
-            this->method_combobox->Location = System::Drawing::Point(407, 3);
-            this->method_combobox->Name = L"method_combobox";
-            this->method_combobox->Size = System::Drawing::Size(121, 24);
-            this->method_combobox->TabIndex = 23;
+            this->b_textbox->Location = System::Drawing::Point(3, 29);
+            this->b_textbox->Name = L"b_textbox";
+            this->b_textbox->Size = System::Drawing::Size(93, 22);
+            this->b_textbox->TabIndex = 1;
             // 
-            // label12
+            // d_textbox
             // 
-            this->label12->AutoSize = true;
-            this->label12->Location = System::Drawing::Point(542, 52);
-            this->label12->Name = L"label12";
-            this->label12->Size = System::Drawing::Size(56, 16);
-            this->label12->TabIndex = 22;
-            this->label12->Text = L"Задача";
+            this->d_textbox->Location = System::Drawing::Point(3, 81);
+            this->d_textbox->Name = L"d_textbox";
+            this->d_textbox->Size = System::Drawing::Size(93, 22);
+            this->d_textbox->TabIndex = 3;
             // 
-            // label11
+            // c_textbox
             // 
-            this->label11->AutoSize = true;
-            this->label11->Location = System::Drawing::Point(542, 26);
-            this->label11->Name = L"label11";
-            this->label11->Size = System::Drawing::Size(16, 16);
-            this->label11->TabIndex = 21;
-            this->label11->Text = L"w";
-            // 
-            // label10
-            // 
-            this->label10->AutoSize = true;
-            this->label10->Location = System::Drawing::Point(542, 0);
-            this->label10->Name = L"label10";
-            this->label10->Size = System::Drawing::Size(108, 16);
-            this->label10->TabIndex = 20;
-            this->label10->Text = L"Метод решения";
-            // 
-            // w_textbox
-            // 
-            this->w_textbox->Location = System::Drawing::Point(407, 29);
-            this->w_textbox->Name = L"w_textbox";
-            this->w_textbox->Size = System::Drawing::Size(100, 22);
-            this->w_textbox->TabIndex = 19;
-            // 
-            // label9
-            // 
-            this->label9->AutoSize = true;
-            this->label9->Location = System::Drawing::Point(247, 78);
-            this->label9->Name = L"label9";
-            this->label9->Size = System::Drawing::Size(47, 16);
-            this->label9->TabIndex = 16;
-            this->label9->Text = L"eps_N";
-            // 
-            // label8
-            // 
-            this->label8->AutoSize = true;
-            this->label8->Location = System::Drawing::Point(247, 52);
-            this->label8->Name = L"label8";
-            this->label8->Size = System::Drawing::Size(42, 16);
-            this->label8->TabIndex = 15;
-            this->label8->Text = L"Nmax";
-            // 
-            // label7
-            // 
-            this->label7->AutoSize = true;
-            this->label7->Location = System::Drawing::Point(247, 26);
-            this->label7->Name = L"label7";
-            this->label7->Size = System::Drawing::Size(18, 16);
-            this->label7->TabIndex = 14;
-            this->label7->Text = L"m";
-            // 
-            // label6
-            // 
-            this->label6->AutoSize = true;
-            this->label6->Location = System::Drawing::Point(247, 0);
-            this->label6->Name = L"label6";
-            this->label6->Size = System::Drawing::Size(14, 16);
-            this->label6->TabIndex = 13;
-            this->label6->Text = L"n";
-            // 
-            // epsn_textbox
-            // 
-            this->epsn_textbox->Location = System::Drawing::Point(139, 81);
-            this->epsn_textbox->Name = L"epsn_textbox";
-            this->epsn_textbox->Size = System::Drawing::Size(100, 22);
-            this->epsn_textbox->TabIndex = 12;
-            // 
-            // nmax_textbox
-            // 
-            this->nmax_textbox->Location = System::Drawing::Point(139, 55);
-            this->nmax_textbox->Name = L"nmax_textbox";
-            this->nmax_textbox->Size = System::Drawing::Size(100, 22);
-            this->nmax_textbox->TabIndex = 11;
-            // 
-            // m_textbox
-            // 
-            this->m_textbox->Location = System::Drawing::Point(139, 29);
-            this->m_textbox->Name = L"m_textbox";
-            this->m_textbox->Size = System::Drawing::Size(100, 22);
-            this->m_textbox->TabIndex = 10;
-            // 
-            // n_textbox
-            // 
-            this->n_textbox->Location = System::Drawing::Point(139, 3);
-            this->n_textbox->Name = L"n_textbox";
-            this->n_textbox->Size = System::Drawing::Size(100, 22);
-            this->n_textbox->TabIndex = 9;
-            // 
-            // label5
-            // 
-            this->label5->AutoSize = true;
-            this->label5->Location = System::Drawing::Point(106, 78);
-            this->label5->Name = L"label5";
-            this->label5->Size = System::Drawing::Size(15, 16);
-            this->label5->TabIndex = 8;
-            this->label5->Text = L"d";
-            // 
-            // label4
-            // 
-            this->label4->AutoSize = true;
-            this->label4->Location = System::Drawing::Point(106, 52);
-            this->label4->Name = L"label4";
-            this->label4->Size = System::Drawing::Size(14, 16);
-            this->label4->TabIndex = 7;
-            this->label4->Text = L"c";
-            // 
-            // label3
-            // 
-            this->label3->AutoSize = true;
-            this->label3->Location = System::Drawing::Point(106, 26);
-            this->label3->Name = L"label3";
-            this->label3->Size = System::Drawing::Size(15, 16);
-            this->label3->TabIndex = 6;
-            this->label3->Text = L"b";
+            this->c_textbox->Location = System::Drawing::Point(3, 55);
+            this->c_textbox->Name = L"c_textbox";
+            this->c_textbox->Size = System::Drawing::Size(93, 22);
+            this->c_textbox->TabIndex = 4;
             // 
             // label2
             // 
@@ -732,54 +547,269 @@ namespace Graph {
             this->label2->TabIndex = 5;
             this->label2->Text = L"a";
             // 
-            // c_textbox
+            // label3
             // 
-            this->c_textbox->Location = System::Drawing::Point(3, 55);
-            this->c_textbox->Name = L"c_textbox";
-            this->c_textbox->Size = System::Drawing::Size(93, 22);
-            this->c_textbox->TabIndex = 4;
+            this->label3->AutoSize = true;
+            this->label3->Location = System::Drawing::Point(106, 26);
+            this->label3->Name = L"label3";
+            this->label3->Size = System::Drawing::Size(15, 16);
+            this->label3->TabIndex = 6;
+            this->label3->Text = L"b";
             // 
-            // d_textbox
+            // label4
             // 
-            this->d_textbox->Location = System::Drawing::Point(3, 81);
-            this->d_textbox->Name = L"d_textbox";
-            this->d_textbox->Size = System::Drawing::Size(93, 22);
-            this->d_textbox->TabIndex = 3;
+            this->label4->AutoSize = true;
+            this->label4->Location = System::Drawing::Point(106, 52);
+            this->label4->Name = L"label4";
+            this->label4->Size = System::Drawing::Size(14, 16);
+            this->label4->TabIndex = 7;
+            this->label4->Text = L"c";
             // 
-            // b_textbox
+            // label5
             // 
-            this->b_textbox->Location = System::Drawing::Point(3, 29);
-            this->b_textbox->Name = L"b_textbox";
-            this->b_textbox->Size = System::Drawing::Size(93, 22);
-            this->b_textbox->TabIndex = 1;
+            this->label5->AutoSize = true;
+            this->label5->Location = System::Drawing::Point(106, 78);
+            this->label5->Name = L"label5";
+            this->label5->Size = System::Drawing::Size(15, 16);
+            this->label5->TabIndex = 8;
+            this->label5->Text = L"d";
             // 
-            // a_textbox
+            // n_textbox
             // 
-            this->a_textbox->Location = System::Drawing::Point(3, 3);
-            this->a_textbox->Name = L"a_textbox";
-            this->a_textbox->Size = System::Drawing::Size(93, 22);
-            this->a_textbox->TabIndex = 0;
+            this->n_textbox->Location = System::Drawing::Point(139, 3);
+            this->n_textbox->Name = L"n_textbox";
+            this->n_textbox->Size = System::Drawing::Size(100, 22);
+            this->n_textbox->TabIndex = 9;
             // 
-            // button1
+            // m_textbox
             // 
-            this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-            this->button1->Location = System::Drawing::Point(731, 61);
-            this->button1->Name = L"button1";
-            this->button1->Size = System::Drawing::Size(148, 48);
-            this->button1->TabIndex = 0;
-            this->button1->Text = L"Решить задачу";
-            this->button1->UseVisualStyleBackColor = true;
-            this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+            this->m_textbox->Location = System::Drawing::Point(139, 29);
+            this->m_textbox->Name = L"m_textbox";
+            this->m_textbox->Size = System::Drawing::Size(100, 22);
+            this->m_textbox->TabIndex = 10;
+            // 
+            // nmax_textbox
+            // 
+            this->nmax_textbox->Location = System::Drawing::Point(139, 55);
+            this->nmax_textbox->Name = L"nmax_textbox";
+            this->nmax_textbox->Size = System::Drawing::Size(100, 22);
+            this->nmax_textbox->TabIndex = 11;
+            // 
+            // epsn_textbox
+            // 
+            this->epsn_textbox->Location = System::Drawing::Point(139, 81);
+            this->epsn_textbox->Name = L"epsn_textbox";
+            this->epsn_textbox->Size = System::Drawing::Size(100, 22);
+            this->epsn_textbox->TabIndex = 12;
+            // 
+            // label6
+            // 
+            this->label6->AutoSize = true;
+            this->label6->Location = System::Drawing::Point(247, 0);
+            this->label6->Name = L"label6";
+            this->label6->Size = System::Drawing::Size(14, 16);
+            this->label6->TabIndex = 13;
+            this->label6->Text = L"n";
+            // 
+            // label7
+            // 
+            this->label7->AutoSize = true;
+            this->label7->Location = System::Drawing::Point(247, 26);
+            this->label7->Name = L"label7";
+            this->label7->Size = System::Drawing::Size(18, 16);
+            this->label7->TabIndex = 14;
+            this->label7->Text = L"m";
+            // 
+            // label8
+            // 
+            this->label8->AutoSize = true;
+            this->label8->Location = System::Drawing::Point(247, 52);
+            this->label8->Name = L"label8";
+            this->label8->Size = System::Drawing::Size(42, 16);
+            this->label8->TabIndex = 15;
+            this->label8->Text = L"Nmax";
+            // 
+            // label9
+            // 
+            this->label9->AutoSize = true;
+            this->label9->Location = System::Drawing::Point(247, 78);
+            this->label9->Name = L"label9";
+            this->label9->Size = System::Drawing::Size(47, 16);
+            this->label9->TabIndex = 16;
+            this->label9->Text = L"eps_N";
+            // 
+            // w_textbox
+            // 
+            this->w_textbox->Location = System::Drawing::Point(407, 29);
+            this->w_textbox->Name = L"w_textbox";
+            this->w_textbox->Size = System::Drawing::Size(100, 22);
+            this->w_textbox->TabIndex = 19;
+            // 
+            // label10
+            // 
+            this->label10->AutoSize = true;
+            this->label10->Location = System::Drawing::Point(542, 0);
+            this->label10->Name = L"label10";
+            this->label10->Size = System::Drawing::Size(108, 16);
+            this->label10->TabIndex = 20;
+            this->label10->Text = L"Метод решения";
+            // 
+            // label11
+            // 
+            this->label11->AutoSize = true;
+            this->label11->Location = System::Drawing::Point(542, 26);
+            this->label11->Name = L"label11";
+            this->label11->Size = System::Drawing::Size(16, 16);
+            this->label11->TabIndex = 21;
+            this->label11->Text = L"w";
+            // 
+            // label12
+            // 
+            this->label12->AutoSize = true;
+            this->label12->Location = System::Drawing::Point(542, 52);
+            this->label12->Name = L"label12";
+            this->label12->Size = System::Drawing::Size(56, 16);
+            this->label12->TabIndex = 22;
+            this->label12->Text = L"Задача";
+            // 
+            // method_combobox
+            // 
+            this->method_combobox->FormattingEnabled = true;
+            this->method_combobox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Зейделя", L"МВР" });
+            this->method_combobox->Location = System::Drawing::Point(407, 3);
+            this->method_combobox->Name = L"method_combobox";
+            this->method_combobox->Size = System::Drawing::Size(121, 24);
+            this->method_combobox->TabIndex = 23;
+            // 
+            // problem_combobox
+            // 
+            this->problem_combobox->FormattingEnabled = true;
+            this->problem_combobox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Тестовая", L"Основная" });
+            this->problem_combobox->Location = System::Drawing::Point(407, 55);
+            this->problem_combobox->Name = L"problem_combobox";
+            this->problem_combobox->Size = System::Drawing::Size(121, 24);
+            this->problem_combobox->TabIndex = 24;
+            // 
+            // label1
+            // 
+            this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->label1->AutoSize = true;
+            this->label1->Location = System::Drawing::Point(3, 0);
+            this->label1->Name = L"label1";
+            this->label1->Size = System::Drawing::Size(882, 306);
+            this->label1->TabIndex = 0;
+            this->label1->Text = L"Здесь появится справка о решении задачи";
+            // 
+            // problem2_groupbox
+            // 
+            this->problem2_groupbox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->problem2_groupbox->Controls->Add(this->u_solution_grid);
+            this->problem2_groupbox->Location = System::Drawing::Point(897, 3);
+            this->problem2_groupbox->Name = L"problem2_groupbox";
+            this->problem2_groupbox->Size = System::Drawing::Size(888, 424);
+            this->problem2_groupbox->TabIndex = 4;
+            this->problem2_groupbox->TabStop = false;
+            this->problem2_groupbox->Text = L"u*(x,y)";
+            // 
+            // u_solution_grid
+            // 
+            this->u_solution_grid->BackgroundColor = System::Drawing::SystemColors::ControlLight;
+            this->u_solution_grid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+            this->u_solution_grid->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->u_solution_grid->Location = System::Drawing::Point(3, 18);
+            this->u_solution_grid->Name = L"u_solution_grid";
+            this->u_solution_grid->RowHeadersWidth = 51;
+            this->u_solution_grid->RowTemplate->Height = 24;
+            this->u_solution_grid->Size = System::Drawing::Size(882, 403);
+            this->u_solution_grid->TabIndex = 0;
+            // 
+            // problem1_groupbox
+            // 
+            this->problem1_groupbox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->problem1_groupbox->Controls->Add(this->v_solution_grid);
+            this->problem1_groupbox->Location = System::Drawing::Point(3, 433);
+            this->problem1_groupbox->Name = L"problem1_groupbox";
+            this->problem1_groupbox->Size = System::Drawing::Size(888, 425);
+            this->problem1_groupbox->TabIndex = 5;
+            this->problem1_groupbox->TabStop = false;
+            this->problem1_groupbox->Text = L"v*(x, y)";
+            // 
+            // v_solution_grid
+            // 
+            this->v_solution_grid->BackgroundColor = System::Drawing::SystemColors::ControlLight;
+            this->v_solution_grid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+            this->v_solution_grid->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->v_solution_grid->Location = System::Drawing::Point(3, 18);
+            this->v_solution_grid->Name = L"v_solution_grid";
+            this->v_solution_grid->RowHeadersWidth = 51;
+            this->v_solution_grid->RowTemplate->Height = 24;
+            this->v_solution_grid->Size = System::Drawing::Size(882, 404);
+            this->v_solution_grid->TabIndex = 0;
+            // 
+            // problem_diff_groupbox
+            // 
+            this->problem_diff_groupbox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->problem_diff_groupbox->Controls->Add(this->delta_solution_grid);
+            this->problem_diff_groupbox->Location = System::Drawing::Point(897, 433);
+            this->problem_diff_groupbox->Name = L"problem_diff_groupbox";
+            this->problem_diff_groupbox->Size = System::Drawing::Size(888, 425);
+            this->problem_diff_groupbox->TabIndex = 6;
+            this->problem_diff_groupbox->TabStop = false;
+            this->problem_diff_groupbox->Text = L"u* - v*";
+            // 
+            // delta_solution_grid
+            // 
+            this->delta_solution_grid->BackgroundColor = System::Drawing::SystemColors::ControlLight;
+            this->delta_solution_grid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+            this->delta_solution_grid->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->delta_solution_grid->Location = System::Drawing::Point(3, 18);
+            this->delta_solution_grid->Name = L"delta_solution_grid";
+            this->delta_solution_grid->RowHeadersWidth = 51;
+            this->delta_solution_grid->RowTemplate->Height = 24;
+            this->delta_solution_grid->Size = System::Drawing::Size(882, 404);
+            this->delta_solution_grid->TabIndex = 0;
             // 
             // tabControl1
             // 
             this->tabControl1->Controls->Add(this->tabPage1);
+            this->tabControl1->Controls->Add(this->tabPage2);
             this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
             this->tabControl1->Location = System::Drawing::Point(0, 0);
             this->tabControl1->Name = L"tabControl1";
             this->tabControl1->SelectedIndex = 0;
             this->tabControl1->Size = System::Drawing::Size(1802, 896);
             this->tabControl1->TabIndex = 31;
+            // 
+            // tabPage2
+            // 
+            this->tabPage2->Controls->Add(this->label13);
+            this->tabPage2->Location = System::Drawing::Point(4, 25);
+            this->tabPage2->Name = L"tabPage2";
+            this->tabPage2->Size = System::Drawing::Size(1794, 867);
+            this->tabPage2->TabIndex = 1;
+            this->tabPage2->Text = L"Описание задач";
+            this->tabPage2->UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this->label13->AutoSize = true;
+            this->label13->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->label13->Location = System::Drawing::Point(0, 0);
+            this->label13->Name = L"label13";
+            this->label13->Padding = System::Windows::Forms::Padding(10);
+            this->label13->Size = System::Drawing::Size(373, 404);
+            this->label13->TabIndex = 0;
+            this->label13->Text = resources->GetString(L"label13.Text");
             // 
             // MyForm
             // 
@@ -793,18 +823,20 @@ namespace Graph {
             this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
             this->tabPage1->ResumeLayout(false);
             this->tableLayoutPanel1->ResumeLayout(false);
-            this->problem_diff_groupbox->ResumeLayout(false);
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->delta_solution_grid))->EndInit();
-            this->problem1_groupbox->ResumeLayout(false);
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->v_solution_grid))->EndInit();
-            this->problem2_groupbox->ResumeLayout(false);
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->u_solution_grid))->EndInit();
             this->tableLayoutPanel2->ResumeLayout(false);
             this->tableLayoutPanel2->PerformLayout();
             this->tableLayoutPanel3->ResumeLayout(false);
             this->tableLayoutPanel4->ResumeLayout(false);
             this->tableLayoutPanel4->PerformLayout();
+            this->problem2_groupbox->ResumeLayout(false);
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->u_solution_grid))->EndInit();
+            this->problem1_groupbox->ResumeLayout(false);
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->v_solution_grid))->EndInit();
+            this->problem_diff_groupbox->ResumeLayout(false);
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->delta_solution_grid))->EndInit();
             this->tabControl1->ResumeLayout(false);
+            this->tabPage2->ResumeLayout(false);
+            this->tabPage2->PerformLayout();
             this->ResumeLayout(false);
 
         }

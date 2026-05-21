@@ -35,6 +35,19 @@ namespace CMDirichlet {
             grid[offset + i] = problem.mu4(problem.x(i));
         }
 
+        double x_diff_inv = 1.0 / (problem.b() - problem.a());
+        for (size_t j = 1; j < m; j++) {
+            double y = problem.y(j);
+            double mu1_y = problem.mu1(y);
+            double mu2_y = problem.mu2(y);
+
+            for (size_t i = 1; i < n; i++) {
+                double x = problem.x(i);
+                double t = (x - problem.a()) * x_diff_inv;
+                grid[j * (n + 1) + i] = mu1_y * (1.0 - t) + mu2_y * t;
+            }
+        }
+
         const double inv_h2 = 1.0 / (problem.h() * problem.h());
         const double inv_k2 = 1.0 / (problem.k() * problem.k());
         const double neg_A = 2.0 * (inv_h2 + inv_k2);
