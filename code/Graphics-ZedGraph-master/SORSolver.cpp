@@ -53,6 +53,19 @@ namespace CMDirichlet {
         const double neg_A = 2.0 * (inv_h2 + inv_k2);
         const double neg_inv_A = 1.0 / neg_A;
 
+        double r0_norm = 0.0;
+        for (size_t j = 1; j < m; j++) {
+            for (size_t i = 1; i < n; i++) {
+                size_t row_offset = (n + 1);
+                size_t index = j * row_offset + i;
+                double r =
+                    inv_h2 * (grid[index - 1] - 2.0 * grid[index] + grid[index + 1]) +
+                    inv_k2 * (grid[index - row_offset] - 2.0 * grid[index] + grid[index + row_offset]) +
+                    f[index];
+                r0_norm = std::max(r0_norm, r);
+            }
+        }
+
         // vij = -1/A * ((1-w)(-A)*vij + w(inv_h2*(vi-1j+vi+1j) + invk2*(vij-1+vij+1) + f))
 
         size_t iter = 0;
@@ -95,7 +108,8 @@ namespace CMDirichlet {
             iter,
             eps_n,
             r_norm,
-            grid
+            grid,
+            r0_norm
         };
     }
 }

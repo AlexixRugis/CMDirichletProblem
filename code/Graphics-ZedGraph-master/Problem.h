@@ -67,5 +67,6 @@ namespace CMDirichlet {
         double eps;
         double r_norm;
         std::vector<double> v;
+        double r0_norm;
     };
 }
