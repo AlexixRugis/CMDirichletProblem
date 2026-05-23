@@ -74,8 +74,12 @@ namespace CMDirichlet {
 
             eps_n = 0.0;
 
-            for (size_t j = 1; j < m; j++) {
-                for (size_t i = 1; i < n; i++) {
+            for (int c = 2; c < n + m - 1; c++) {
+                const int j_start = std::max<int>(1, c - (n - 1));
+                const int j_end = std::min<int>(m - 1, c - 1);
+
+                for (int j = j_start; j <= j_end; j++) {
+                    int i = c - j;
                     double old_val = grid[j * (n + 1) + i];
 
                     size_t row_offset = (n + 1);
@@ -86,7 +90,10 @@ namespace CMDirichlet {
                     grid[index] += f[index];
                     grid[index] *= neg_inv_A;
 
-                    eps_n = std::max(eps_n, std::abs(grid[index] - old_val));
+                    double new_eps_n = std::abs(grid[index] - old_val);
+                    if (new_eps_n > eps_n) {
+                        eps_n = new_eps_n;
+                    }
                 }
             }
         }

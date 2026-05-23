@@ -4,6 +4,7 @@
 #include <climits>
 #include <cfloat>
 #include <string>
+#include <chrono>
 #include "Functions.h"
 #include "Problem.h"
 #include "SeidelSolver.h"
@@ -348,21 +349,21 @@ namespace Graph {
             this->n_textbox = (gcnew System::Windows::Forms::TextBox());
             this->m_textbox = (gcnew System::Windows::Forms::TextBox());
             this->nmax_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->epsn_textbox = (gcnew System::Windows::Forms::TextBox());
             this->label6 = (gcnew System::Windows::Forms::Label());
             this->label7 = (gcnew System::Windows::Forms::Label());
             this->label8 = (gcnew System::Windows::Forms::Label());
-            this->label9 = (gcnew System::Windows::Forms::Label());
-            this->w_textbox = (gcnew System::Windows::Forms::TextBox());
             this->label10 = (gcnew System::Windows::Forms::Label());
-            this->label11 = (gcnew System::Windows::Forms::Label());
             this->label12 = (gcnew System::Windows::Forms::Label());
             this->method_combobox = (gcnew System::Windows::Forms::ComboBox());
             this->problem_combobox = (gcnew System::Windows::Forms::ComboBox());
+            this->label15 = (gcnew System::Windows::Forms::Label());
+            this->w2_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->w_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->label11 = (gcnew System::Windows::Forms::Label());
+            this->epsn_textbox = (gcnew System::Windows::Forms::TextBox());
+            this->label9 = (gcnew System::Windows::Forms::Label());
             this->eps2n_textbox = (gcnew System::Windows::Forms::TextBox());
             this->label14 = (gcnew System::Windows::Forms::Label());
-            this->w2_textbox = (gcnew System::Windows::Forms::TextBox());
-            this->label15 = (gcnew System::Windows::Forms::Label());
             this->label1 = (gcnew System::Windows::Forms::Label());
             this->problem2_groupbox = (gcnew System::Windows::Forms::GroupBox());
             this->u_solution_grid = (gcnew System::Windows::Forms::DataGridView());
@@ -629,14 +630,6 @@ namespace Graph {
             this->nmax_textbox->Size = System::Drawing::Size(69, 20);
             this->nmax_textbox->TabIndex = 11;
             // 
-            // epsn_textbox
-            // 
-            this->epsn_textbox->Location = System::Drawing::Point(380, 46);
-            this->epsn_textbox->Margin = System::Windows::Forms::Padding(2);
-            this->epsn_textbox->Name = L"epsn_textbox";
-            this->epsn_textbox->Size = System::Drawing::Size(53, 20);
-            this->epsn_textbox->TabIndex = 12;
-            // 
             // label6
             // 
             this->label6->AutoSize = true;
@@ -667,24 +660,6 @@ namespace Graph {
             this->label8->TabIndex = 15;
             this->label8->Text = L"Nmax";
             // 
-            // label9
-            // 
-            this->label9->AutoSize = true;
-            this->label9->Location = System::Drawing::Point(437, 44);
-            this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-            this->label9->Name = L"label9";
-            this->label9->Size = System::Drawing::Size(38, 13);
-            this->label9->TabIndex = 16;
-            this->label9->Text = L"eps_N";
-            // 
-            // w_textbox
-            // 
-            this->w_textbox->Location = System::Drawing::Point(380, 2);
-            this->w_textbox->Margin = System::Windows::Forms::Padding(2);
-            this->w_textbox->Name = L"w_textbox";
-            this->w_textbox->Size = System::Drawing::Size(53, 20);
-            this->w_textbox->TabIndex = 19;
-            // 
             // label10
             // 
             this->label10->AutoSize = true;
@@ -694,16 +669,6 @@ namespace Graph {
             this->label10->Size = System::Drawing::Size(51, 22);
             this->label10->TabIndex = 20;
             this->label10->Text = L"Метод решения";
-            // 
-            // label11
-            // 
-            this->label11->AutoSize = true;
-            this->label11->Location = System::Drawing::Point(437, 0);
-            this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-            this->label11->Name = L"label11";
-            this->label11->Size = System::Drawing::Size(15, 13);
-            this->label11->TabIndex = 21;
-            this->label11->Text = L"w";
             // 
             // label12
             // 
@@ -735,6 +700,58 @@ namespace Graph {
             this->problem_combobox->Size = System::Drawing::Size(73, 21);
             this->problem_combobox->TabIndex = 24;
             // 
+            // label15
+            // 
+            this->label15->AutoSize = true;
+            this->label15->Location = System::Drawing::Point(438, 22);
+            this->label15->Name = L"label15";
+            this->label15->Size = System::Drawing::Size(21, 13);
+            this->label15->TabIndex = 28;
+            this->label15->Text = L"w2";
+            // 
+            // w2_textbox
+            // 
+            this->w2_textbox->Location = System::Drawing::Point(381, 25);
+            this->w2_textbox->Name = L"w2_textbox";
+            this->w2_textbox->Size = System::Drawing::Size(51, 20);
+            this->w2_textbox->TabIndex = 27;
+            // 
+            // w_textbox
+            // 
+            this->w_textbox->Location = System::Drawing::Point(380, 2);
+            this->w_textbox->Margin = System::Windows::Forms::Padding(2);
+            this->w_textbox->Name = L"w_textbox";
+            this->w_textbox->Size = System::Drawing::Size(53, 20);
+            this->w_textbox->TabIndex = 19;
+            // 
+            // label11
+            // 
+            this->label11->AutoSize = true;
+            this->label11->Location = System::Drawing::Point(437, 0);
+            this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+            this->label11->Name = L"label11";
+            this->label11->Size = System::Drawing::Size(15, 13);
+            this->label11->TabIndex = 21;
+            this->label11->Text = L"w";
+            // 
+            // epsn_textbox
+            // 
+            this->epsn_textbox->Location = System::Drawing::Point(380, 46);
+            this->epsn_textbox->Margin = System::Windows::Forms::Padding(2);
+            this->epsn_textbox->Name = L"epsn_textbox";
+            this->epsn_textbox->Size = System::Drawing::Size(53, 20);
+            this->epsn_textbox->TabIndex = 12;
+            // 
+            // label9
+            // 
+            this->label9->AutoSize = true;
+            this->label9->Location = System::Drawing::Point(437, 44);
+            this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+            this->label9->Name = L"label9";
+            this->label9->Size = System::Drawing::Size(38, 13);
+            this->label9->TabIndex = 16;
+            this->label9->Text = L"eps_N";
+            // 
             // eps2n_textbox
             // 
             this->eps2n_textbox->Location = System::Drawing::Point(381, 69);
@@ -752,22 +769,6 @@ namespace Graph {
             this->label14->Size = System::Drawing::Size(66, 13);
             this->label14->TabIndex = 26;
             this->label14->Text = L"eps_2N";
-            // 
-            // w2_textbox
-            // 
-            this->w2_textbox->Location = System::Drawing::Point(381, 25);
-            this->w2_textbox->Name = L"w2_textbox";
-            this->w2_textbox->Size = System::Drawing::Size(51, 20);
-            this->w2_textbox->TabIndex = 27;
-            // 
-            // label15
-            // 
-            this->label15->AutoSize = true;
-            this->label15->Location = System::Drawing::Point(438, 22);
-            this->label15->Name = L"label15";
-            this->label15->Size = System::Drawing::Size(21, 13);
-            this->label15->TabIndex = 28;
-            this->label15->Text = L"w2";
             // 
             // label1
             // 
@@ -1035,7 +1036,8 @@ namespace Graph {
                 func_mu4_test
             );
 
-            const auto solution = Solve(problem, nmax, epsn, w);
+            double time;
+            const auto solution = Solve(problem, nmax, epsn, w, time);
             const auto& v = solution.v;
 
             std::vector<double> u(solution.v.size(), 0.0);
@@ -1078,21 +1080,24 @@ n = «{0}» и числом разбиений по y m = «{1}»,
 Задача решена с погрешностью eps_1 = «{7}»
 Максимальное отклонение точного и численного решений наблюдается в узле x = «{8}»; y = «{9}»
 В качестве начального приближения использовано «интерполяция по x»)",
-                problem.n(), problem.m(), epsn, nmax,
-                solution.n, solution.eps, solution.r_norm,
-                eps_1, eps_x, eps_y, solution.r0_norm);
+problem.n(), problem.m(), epsn, nmax,
+solution.n, solution.eps, solution.r_norm,
+eps_1, eps_x, eps_y, solution.r0_norm);
 
             label1->Text = hint;
 
             problem1_groupbox->Text = "v*(x,y)";
+            problem2_groupbox->Text = "u*(x,y)";
+            problem_diff_groupbox->Text = "u* - v*";
             FillDataGridViewFromSolution(v_solution_grid,
                 problem.n(), problem.m(), problem.a(), problem.b(), problem.c(), problem.d(), v, 6);
-            problem2_groupbox->Text = "u*(x,y)";
             FillDataGridViewFromSolution(u_solution_grid,
                 problem.n(), problem.m(), problem.a(), problem.b(), problem.c(), problem.d(), u, 6);
-            problem_diff_groupbox->Text = "u* - v*";
             FillDataGridViewFromSolution(delta_solution_grid,
                 problem.n(), problem.m(), problem.a(), problem.b(), problem.c(), problem.d(), diff_u_v, 6);
+
+            MessageBox::Show("Вычисления выполнены за: " + time + " секунд.",
+                "Уведомление", MessageBoxButtons::OK, MessageBoxIcon::Information);
         }
         else {
             DirichletProblem problem(
@@ -1113,9 +1118,10 @@ n = «{0}» и числом разбиений по y m = «{1}»,
                 func_mu4_main
             );
 
-            const auto solution = Solve(problem, nmax, epsn, w);
+            double time_1, time_2;
+            const auto solution = Solve(problem, nmax, epsn, w, time_1);
             const auto& v = solution.v;
-            const auto solution2 = Solve(problem2, nmax, eps2n, w2);
+            const auto solution2 = Solve(problem2, nmax, eps2n, w2, time_2);
             const auto& v2 = solution2.v;
 
             std::vector<double> diff_v_v2(solution.v.size(), 0.0);
@@ -1208,6 +1214,7 @@ eps_1, eps_x, eps_y, eps2n, solution.r0_norm, solution2.r0_norm);
             headerCol->ReadOnly = true;
             dataGridView->Columns->Add(headerCol);
 
+
             for (size_t i = 0; i <= n; i++) {
                 DataGridViewTextBoxColumn^ col = gcnew DataGridViewTextBoxColumn();
                 col->Name = String::Format("x_{0}", i);
@@ -1230,7 +1237,6 @@ eps_1, eps_x, eps_y, eps2n, solution.r0_norm, solution2.r0_norm);
                     double value = solution[j * (n + 1) + i];
                     dataGridView->Rows[j]->Cells[i + 1]->Value = value.ToString();
                 }
-
             }
 
             dataGridView->AutoResizeColumns(DataGridViewAutoSizeColumnsMode::AllCells);
@@ -1261,7 +1267,9 @@ eps_1, eps_x, eps_y, eps2n, solution.r0_norm, solution2.r0_norm);
             FillDataGridView(dataGridView, x, y, solution, precision);
         }
 
-        DiricletProblemSolution Solve(const DirichletProblem& problem, size_t nmax, double epsn, double w) {
+        DiricletProblemSolution Solve(const DirichletProblem& problem, size_t nmax, double epsn, double w, double& time_secs) {
+
+            auto start = std::chrono::high_resolution_clock::now();
             DiricletProblemSolution solution;
             if (method_combobox->SelectedIndex == 0) {
                 SeidelSolver solver(nmax, epsn);
@@ -1271,6 +1279,9 @@ eps_1, eps_x, eps_y, eps2n, solution.r0_norm, solution2.r0_norm);
                 SORSolver solver(nmax, epsn, w);
                 solution = solver.solve(problem);
             }
+            auto end = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+            time_secs = static_cast<double>(duration.count()) * 1e-3;
 
             return solution;
         }
