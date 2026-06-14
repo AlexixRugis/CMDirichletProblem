@@ -8,22 +8,23 @@ namespace CMDirichlet {
     DiricletProblemSolution SORSolver::solve(const DirichletProblem& problem) {
         const auto n = problem.n();
         const auto m = problem.m();
+        const size_t stride = n + 1;
 
         std::vector<double> grid((n + 1) * (m + 1), 0.0);
         std::vector<double> f((n + 1) * (m + 1), 0.0);
 
         for (size_t j = 0; j <= m; j++) {
             for (size_t i = 0; i <= n; i++) {
-                f[j * (n + 1) + i] = problem.f(problem.x(i), problem.y(j));
+                f[j * stride + i] = problem.f(problem.x(i), problem.y(j));
             }
         }
 
         for (size_t j = 0; j <= m; j++) {
-            grid[j * (n + 1)] = problem.mu1(problem.y(j));
+            grid[j * stride] = problem.mu1(problem.y(j));
         }
 
         for (size_t j = 0; j <= m; j++) {
-            grid[j * (n + 1) + n] = problem.mu2(problem.y(j));
+            grid[j * stride + n] = problem.mu2(problem.y(j));
         }
 
         for (size_t i = 1; i < n; i++) {
@@ -44,7 +45,7 @@ namespace CMDirichlet {
             for (size_t i = 1; i < n; i++) {
                 double x = problem.x(i);
                 double t = (x - problem.a()) * x_diff_inv;
-                grid[j * (n + 1) + i] = mu1_y * (1.0 - t) + mu2_y * t;
+                grid[j * stride + i] = mu1_y * (1.0 - t) + mu2_y * t;
             }
         }
 
@@ -56,13 +57,26 @@ namespace CMDirichlet {
         double r0_norm = 0.0;
         for (size_t j = 1; j < m; j++) {
             for (size_t i = 1; i < n; i++) {
-                size_t row_offset = (n + 1);
-                size_t index = j * row_offset + i;
+                size_t index = j * stride + i;
                 double r =
                     inv_h2 * (grid[index - 1] - 2.0 * grid[index] + grid[index + 1]) +
-                    inv_k2 * (grid[index - row_offset] - 2.0 * grid[index] + grid[index + row_offset]) +
+                    inv_k2 * (grid[index - stride] - 2.0 * grid[index] + grid[index + stride]) +
                     f[index];
                 r0_norm = std::max(r0_norm, r);
+            }
+        }
+
+        std::vector<double> diagStorage((n + m + 1) * (n + 1));
+        std::vector<double> fDiagStorage((n + m + 1) * (n + 1));
+
+        for (size_t d = 0; d <= n + m; d++) {
+            size_t i_max = std::min(n, d);
+            for (size_t i = 0; i <= i_max; i++) {
+                size_t j = d - i;
+                if (j <= m) {
+                    diagStorage[d * stride + i] = grid[j * stride + i];
+                    fDiagStorage[d * stride + i] = f[j * stride + i];
+                }
             }
         }
 
@@ -70,30 +84,56 @@ namespace CMDirichlet {
 
         size_t iter = 0;
         double eps_n = std::numeric_limits<double>::max();
+        const  double eps_stop = eps();
+        const  size_t max_iter = maxN();
 
-        for (; iter < maxN() && eps_n > eps(); iter++) {
+        const double* fPtr = fDiagStorage.data();
+        double* dPtr = diagStorage.data();
 
+        for (; iter < max_iter && eps_n > eps_stop; ++iter) {
             eps_n = 0.0;
 
-            for (int c = 2; c < n + m - 1; c++) {
-                const int j_start = std::max<int>(1, c - (n - 1));
-                const int j_end = std::min<int>(m - 1, c - 1);
+            for (size_t d = 2; d <= n + m - 2; ++d) {
 
-                for (int j = j_start; j <= j_end; j++) {
-                    int i = c - j;
-                    double old_val = grid[j * (n + 1) + i];
+                const size_t i_lo = (d > m - 1) ? (d - (m - 1)) : 1;
+                const size_t i_hi = std::min(d - 1, n - 1);
+                if (i_lo > i_hi) [[unlikely]] continue;
 
-                    size_t row_offset = (n + 1);
-                    size_t index = j * row_offset + i;
-                    grid[index] = (1.0 - w()) * neg_A * grid[index] + w() * (
-                        inv_h2 * (grid[index - 1] + grid[index + 1]) +
-                        inv_k2 * (grid[index - row_offset] + grid[index + row_offset]) + f[index]);
-                    grid[index] *= neg_inv_A;
+                const double* fCur = fPtr + d * stride;
+                const double* prev = dPtr + (d - 1) * stride;
+                double* cur = dPtr + d * stride;
+                const double* next = dPtr + (d + 1) * stride;
 
-                    double new_eps_n = std::abs(grid[index] - old_val);
-                    if (new_eps_n > eps_n) {
-                        eps_n = new_eps_n;
-                    }
+                double local_eps = 0.0;
+
+                for (size_t i = i_lo; i <= i_hi; ++i) {
+                    const size_t j = d - i;
+                    const double old = cur[i];
+
+                    double v =
+                        (1.0 - w()) * neg_A * cur[i] + w() * (
+                            inv_h2 * (prev[i - 1] + next[i + 1]) +
+                            inv_k2 * (prev[i] + next[i]) +
+                            fCur[i]
+                            );
+                    v *= neg_inv_A;
+
+                    cur[i] = v;
+                    double diff = v - old;
+                    if (diff < 0) diff = -diff;
+                    if (diff > local_eps) local_eps = diff;
+                }
+
+                if (local_eps > eps_n) eps_n = local_eps;
+            }
+        }
+
+        for (size_t d = 0; d <= n + m; d++) {
+            size_t i_max = std::min(n, d);
+            for (size_t i = 0; i <= i_max; i++) {
+                size_t j = d - i;
+                if (j <= m) {
+                    grid[j * stride + i] = diagStorage[d * stride + i];
                 }
             }
         }
