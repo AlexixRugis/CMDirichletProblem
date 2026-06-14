@@ -130,6 +130,11 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <OpenMPSupport>true</OpenMPSupport>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FloatingPointModel>Default</FloatingPointModel>
+      <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

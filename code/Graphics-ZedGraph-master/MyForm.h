@@ -1089,12 +1089,12 @@ eps_1, eps_x, eps_y, solution.r0_norm);
             problem1_groupbox->Text = "v*(x,y)";
             problem2_groupbox->Text = "u*(x,y)";
             problem_diff_groupbox->Text = "u* - v*";
-            FillDataGridViewFromSolution(v_solution_grid,
+            /*FillDataGridViewFromSolution(v_solution_grid,
                 problem.n(), problem.m(), problem.a(), problem.b(), problem.c(), problem.d(), v, 6);
             FillDataGridViewFromSolution(u_solution_grid,
                 problem.n(), problem.m(), problem.a(), problem.b(), problem.c(), problem.d(), u, 6);
             FillDataGridViewFromSolution(delta_solution_grid,
-                problem.n(), problem.m(), problem.a(), problem.b(), problem.c(), problem.d(), diff_u_v, 6);
+                problem.n(), problem.m(), problem.a(), problem.b(), problem.c(), problem.d(), diff_u_v, 6);*/
 
             MessageBox::Show("Вычисления выполнены за: " + time + " секунд.",
                 "Уведомление", MessageBoxButtons::OK, MessageBoxIcon::Information);
