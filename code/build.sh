@@ -1,0 +1,1 @@
+g++ -finput-charset=UTF-8 -fexec-charset=UTF-8 .\CLI\CLI.cpp .\CMLib\Functions.cpp .\CMLib\SeidelSolver.cpp .\CMLib\SORSolver.cpp -I.\CMLib\ -std=c++20 -O2

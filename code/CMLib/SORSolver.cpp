@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 namespace CMDirichlet {
     DiricletProblemSolution SORSolver::solve(const DirichletProblem& problem) {

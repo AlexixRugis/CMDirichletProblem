@@ -318,7 +318,7 @@ void solve_main(const IniMap& cfg, std::ofstream& out) {
 // main
 // ===================================================================
 int main(int argc, char* argv[]) {
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "Russian");
     setlocale(LC_NUMERIC, "C");
 
     if (argc < 3) {
