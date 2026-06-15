@@ -1,4 +1,4 @@
-#include "SorSolver.h"
+#include "SORSolver.h"
 #include "Problem.h"
 
 #include <vector>
