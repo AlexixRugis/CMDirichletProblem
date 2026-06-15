@@ -105,7 +105,10 @@ namespace CMDirichlet {
 
                 double local_eps = 0.0;
 
-#pragma loop(ivdep)
+// THIS BREAKS THE CODE ON MSVC COMPILER. IF YOU WANT VECTORIZATION USE GCC
+#ifdef __GNUC__
+#pragma omp simd reduction(max: local_eps)
+#endif
                 for (size_t i = i_lo; i <= i_hi; ++i) {
                     const double old = cur[i];
 

@@ -107,6 +107,10 @@ namespace CMDirichlet {
 
                 double local_eps = 0.0;
 
+// THIS BREAKS THE CODE ON MSVC COMPILER. IF YOU WANT VECTORIZATION USE GCC
+#ifdef __GNUC__
+#pragma omp simd reduction(max: local_eps)
+#endif
                 for (size_t i = i_lo; i <= i_hi; ++i) {
                     const size_t j = d - i;
                     const double old = cur[i];
@@ -121,11 +125,11 @@ namespace CMDirichlet {
 
                     cur[i] = v;
                     double diff = v - old;
-                    if (diff < 0) diff = -diff;
-                    if (diff > local_eps) local_eps = diff;
+                    double abs_diff = std::abs(diff);
+                    local_eps = std::max(local_eps, abs_diff);
                 }
 
-                if (local_eps > eps_n) eps_n = local_eps;
+                eps_n = std::max(eps_n, local_eps);
             }
         }
 
