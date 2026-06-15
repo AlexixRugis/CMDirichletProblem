@@ -86,8 +86,8 @@ namespace CMDirichlet {
         const  double eps_stop = eps();
         const  size_t max_iter = maxN();
 
-        const double* fPtr = fDiagStorage.data();
-        double* dPtr = diagStorage.data();
+        const double* __restrict fPtr = fDiagStorage.data();
+        double* __restrict dPtr = diagStorage.data();
 
         for (; iter < max_iter && eps_n > eps_stop; ++iter) {
             eps_n = 0.0;
@@ -96,17 +96,16 @@ namespace CMDirichlet {
 
                 const size_t i_lo = (d > m - 1) ? (d - (m - 1)) : 1;
                 const size_t i_hi = std::min(d - 1, n - 1);
-                if (i_lo > i_hi) [[unlikely]] continue;
 
-                const double* fCur = fPtr + d * stride;
-                const double* prev = dPtr + (d - 1) * stride;
-                double* cur = dPtr + d * stride;
-                const double* next = dPtr + (d + 1) * stride;
+                const double* __restrict fCur = fPtr + d * stride;
+                const double* __restrict prev = dPtr + (d - 1) * stride;
+                double* __restrict cur = dPtr + d * stride;
+                const double* __restrict next = dPtr + (d + 1) * stride;
 
                 double local_eps = 0.0;
 
+#pragma loop(ivdep)
                 for (size_t i = i_lo; i <= i_hi; ++i) {
-                    const size_t j = d - i;
                     const double old = cur[i];
 
                     double v =
@@ -115,12 +114,13 @@ namespace CMDirichlet {
                     v = (v + fCur[i]) * neg_inv_A;
 
                     cur[i] = v;
+
                     double diff = v - old;
-                    if (diff < 0) diff = -diff;
-                    if (diff > local_eps) local_eps = diff;
+                    double abs_diff = std::abs(diff);
+                    local_eps = std::max(local_eps, abs_diff);
                 }
 
-                if (local_eps > eps_n) eps_n = local_eps;
+                eps_n = std::max(eps_n, local_eps);
             }
         }
 
