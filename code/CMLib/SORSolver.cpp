@@ -63,7 +63,7 @@ namespace CMDirichlet {
                     inv_h2 * (grid[index - 1] - 2.0 * grid[index] + grid[index + 1]) +
                     inv_k2 * (grid[index - stride] - 2.0 * grid[index] + grid[index + stride]) +
                     f[index];
-                r0_norm = std::max(r0_norm, r);
+                r0_norm = std::max(r0_norm, std::abs(r));
             }
         }
 
@@ -152,7 +152,7 @@ namespace CMDirichlet {
                     inv_h2 * (grid[index - 1] - 2.0 * grid[index] + grid[index + 1]) +
                     inv_k2 * (grid[index - row_offset] - 2.0 * grid[index] + grid[index + row_offset]) +
                     f[index];
-                r_norm = std::max(r_norm, r);
+                r_norm = std::max(r_norm, std::abs(r));
             }
         }
 
